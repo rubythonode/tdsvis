@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>example</title>
+    <link href='bootstrap.css' rel='stylesheet' type='text/css'>
+    <style>
+    body{
+      width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    </style>
+  </head>
+  <body>
+
+        <div id='graph'></div>
+
+    <script src="d3.min.js"></script>
+    <script src="jupyterapp.js"></script>
+    <script>
+
+
+          jupyterapp.json("gridlabd_r525.json", function(error, graph) {
+
+                let data = [
+
+                  {'data': graph,
+                   'render': 'canvas',
+                   'kind': 'network',
+                   'config': {'height': 500,
+                              'scale': 3,
+                              'table': true,
+                              'scheme': "20b",
+                              'color': 'kind',
+                              'legend': true,
+                              'width': 900}},
+
+
+                  ];
+
+
+                jupyterapp.pfntv("erdd1733736", "graph", data);
+
+          });
+
+    </script>
+  </body>
+</html>

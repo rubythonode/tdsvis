@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>example</title>
+    <link href='bootstrap.css' rel='stylesheet' type='text/css'>
+    <style>
+    body{
+      width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    </style>
+  </head>
+  <body>
+
+        <div id='graph'></div>
+
+    <script src="d3.min.js"></script>
+    <script src="jupyterapp.js"></script>
+    <script>
+
+
+      jupyterapp.json("node13_power.json", function(error, power) {
+        jupyterapp.json("node13_voltage.json", function(error, voltage) {
+          jupyterapp.json("node13_graph.json", function(error, graph) {
+
+                let data = [
+
+
+
+                    //
+                    // {'data': voltage,
+                    // 'kind': 'line',
+                    // 'config': {'height': 300,
+                    //            'width': 300,
+                    //            'scale': 2,
+                    //            'scheme': "20b",
+                    //            'legend': false }},
+
+                   {'data': power,
+                   'kind': 'area',
+                   'config': {'height': 250,
+                              'width': 900,
+                              'scheme': "20b",
+                              'legend': true }},
+
+                              {'data': graph,
+                               'render': 'canvas',
+                               'kind': 'network',
+                               'config': {'height': 250,
+                                          'scale': 1.5,
+                                          'scheme': "20b",
+                                          'color': 'kind',
+                                          'table': true,
+                                          'width': 450}},
+
+                  ];
+
+
+                jupyterapp.pfntv("erdd1733736", "graph", data);
+
+          });
+        });
+      });
+
+    </script>
+  </body>
+</html>
